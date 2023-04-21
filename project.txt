@@ -1,0 +1,81 @@
+PROJECT-1: (ROCK,PAPER,SCISSORS)
+from random import randint
+t = ["ROCK","PAPER","SCISSORS"]
+computer = t[randint(0,2)]
+player_score=0
+computer_score=0
+player = False
+while player == False:
+    player = input("ROCK,PAPER,SCISSORS")
+    if player == computer:
+           print("Tie!")
+    elif player == "ROCK":
+          if computer == "PAPER":
+             print("You lose!", computer, "covers", player)
+             computer_score+=1
+          else:
+             print("You win!", player, "smashes", computer)
+             player_score+=1
+    elif player == "PAPER":
+         if computer == "SCISSORS":
+             print("You lose!", computer, "cut", player)
+             computer_score+=1
+         else:
+             print("You win!", player, "covers", computer)
+             player_score+=1
+    elif player == "SCISSORS":
+         if computer == "ROCK":
+             print("You lose...", computer, "smashes", player)
+             computer_score+=1
+         else:
+             print("You win!", player, "cut", computer)
+             player_score+=1
+    elif player == "EXIT":
+             print("End the game")
+             break
+    else:
+         print("That's not a valid play. Check your spelling!")
+    player = False
+    computer = t[randint(0, 2)]
+if player_score>computer_score:
+      print("player won the match")
+      print("\n the score is : {}".format(player_score))
+elif player_score>=computer_score:
+      print("match is tie")
+else:
+    print("computer won the match")
+    print("\n the score is : {}".format(computer_score))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PROJECT-2: (GUESS THE NUMBER)
+from random import randint
+import math
+staring_Value = int(input("Enter Lower bound:- "))
+ending_Value = int(input("Enter Upper bound:- "))
+computer = randint(staring_Value, ending_Value)
+chance = 3
+count = 0
+while count < chance:
+    count += 1
+    guess = int(input("Guess a number:- "))
+    if computer == guess:
+        print("Congratulations you did it!!")
+        break
+    elif computer > guess:
+        print("You guessed too small!")
+    elif computer < guess:
+        print("You Guessed too high!")
+if count >= chance:
+    print("\nThe number is {}".format(computer))
